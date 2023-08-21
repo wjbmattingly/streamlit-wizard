@@ -2,14 +2,17 @@ import streamlit as st
 import random
 import time
 
-# Define custom CSS
 custom_css = """
 <style>
-    body {
-        background: radial-gradient(circle at center, #fbf5e1, #f5e0b4, #e6d5a5, #f5e0b4, #fbf5e1);
-        color: #3e2723;
-        font-family: 'Georgia', serif;
+    @font-face {
+        font-family: 'Endor';
+        src: url('https://raw.githubusercontent.com/wjbmattingly/streamlit-wizard/main/ENDOR___.ttf') format('truetype');
     }
+
+    h1, h2, h3, h4, h5, h6, p, .stMarkdown h1, .stMarkdown p {
+    font-family: 'Endor', serif;
+    color: #3e2723;
+}
     table {
         border-collapse: collapse;
         width: 100%;
@@ -24,14 +27,12 @@ custom_css = """
         font-size: 20px;
         background-color: rgba(255, 250, 230, 0.8);
     }
-    .stMarkdown h1 {
-        color: #3e2723;
-    }
-    .stMarkdown p {
+    .stMarkdown h1, .stMarkdown p {
         color: #3e2723;
     }
 </style>
 """
+
 
 # Injecting the custom CSS into the app
 st.markdown(custom_css, unsafe_allow_html=True)
@@ -206,7 +207,7 @@ if up_button or down_button or left_button or right_button:
     # st.session_state.wizard_pos, st.session_state.wizard_hp, st.session_state.monsters = move_wizard(st.session_state.grid, st.session_state.wizard_pos, direction, st.session_state.wizard_hp, st.session_state.monsters)
     # # Move monsters after the wizard moves
     # st.session_state.monsters = move_monsters(st.session_state.grid, st.session_state.monsters)
-    time.sleep(.1) 
+    time.sleep(.5) 
     st.experimental_rerun()
 # Check Wizard's HP after movement
 if st.session_state.wizard_hp <= 0:
